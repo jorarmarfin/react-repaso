@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+h1 {
+    @apply text-3xl font-bold;
+}
+p {
+    @apply text-lg;
+}
+ul {
+    @apply list-disc list-inside;
+}
+ul>li {
+    @apply text-sm;
+}
+
+.table th, .table td {
+    @apply border border-gray-400 px-4 py-4;
+}
+
+.table tbody tr:nth-child(2n+1) {
+    @apply bg-gray-200;
+}
+
+.btn {
+    @apply px-4 py-2 bg-blue-500 text-white rounded;
+}
