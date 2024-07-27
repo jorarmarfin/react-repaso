@@ -7,6 +7,7 @@ export const MemesApp = () => {
     return (
         <>
             <h1 className='mt-5'>Memes App</h1>
+            <hr/>
             <p>El componente padre, muestra en un listado los memes, pero tiene un componente hijo que contiene el
                 formulario, y el padre crea un useSate, y le envía el setState al componente hijo, y el componente hijo
                 lo usa para ingresar un nuevo valor

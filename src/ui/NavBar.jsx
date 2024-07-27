@@ -5,8 +5,9 @@ import logo from "../assets/logos/logo.png";
 const navigation = [
     { name: 'Dashboard', href: '/', current: true },
     { name: 'Memes', href: '/memes-app', current: false },
-    { name: 'Projects', href: '#', current: false },
-    { name: 'Calendar', href: '#', current: false },
+    { name: 'Journal', href: '/journal-app', current: false },
+    { name: 'Pokemon', href: '/pokemon-app', current: false },
+    { name: 'Login', href: '/login', current: false },
 ]
 const classNames = (...classes) =>{
     return classes.filter(Boolean).join(' ')
@@ -15,7 +16,7 @@ export const NavBar = () => {
     return (
         <>
             <Disclosure as="nav" className="bg-gray-800">
-                <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+                <div className="mx-auto px-2 sm:px-6 lg:px-8">
                     <div className="relative flex h-16 items-center justify-between">
                         <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                             {/* Mobile menu button*/}
