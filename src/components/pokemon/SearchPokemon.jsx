@@ -9,6 +9,7 @@ export const SearchPokemon = () => {
         const onSubmit = async (e) => {
             e.preventDefault();
             dispatch(getPokemonThunk(pokemon));
+
         }
     return (
         <>

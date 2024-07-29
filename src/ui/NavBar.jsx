@@ -1,18 +1,31 @@
 import {Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems} from "@headlessui/react";
 import {Bars3Icon, BellIcon, XMarkIcon} from "@heroicons/react/24/outline/index.js";
 import logo from "../assets/logos/logo.png";
+import {useDispatch, useSelector} from "react-redux";
+import {logoutThunk} from "../store/thunks/AuthThunk.js";
 
 const navigation = [
     { name: 'Dashboard', href: '/', current: true },
     { name: 'Memes', href: '/memes-app', current: false },
     { name: 'Journal', href: '/journal-app', current: false },
     { name: 'Pokemon', href: '/pokemon-app', current: false },
+    { name: 'Todos', href: '/todos-app', current: false },
     { name: 'Login', href: '/login', current: false },
+    { name: 'Loading', href: '/loading', current: false },
 ]
 const classNames = (...classes) =>{
     return classes.filter(Boolean).join(' ')
 }
 export const NavBar = () => {
+    const {photo,email} = useSelector(state => state.auth);
+    const dispatch = useDispatch();
+
+    const onClick = () => {
+        console.log('click');
+        dispatch(logoutThunk())
+    }
+
+
     return (
         <>
             <Disclosure as="nav" className="bg-gray-800">
@@ -71,7 +84,10 @@ export const NavBar = () => {
                                         <span className="sr-only">Open user menu</span>
                                         <img
                                             alt=""
-                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                            src={
+                                                photo ||
+                                                'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80'
+                                            }
                                             className="h-8 w-8 rounded-full"
                                         />
                                     </MenuButton>
@@ -82,7 +98,7 @@ export const NavBar = () => {
                                 >
                                     <MenuItem>
                                         <a href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
-                                            Your Profile
+                                            { email || 'No auth' }
                                         </a>
                                     </MenuItem>
                                     <MenuItem>
@@ -91,7 +107,7 @@ export const NavBar = () => {
                                         </a>
                                     </MenuItem>
                                     <MenuItem>
-                                        <a href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
+                                        <a onClick={onClick} href="#" className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100">
                                             Sign out
                                         </a>
                                     </MenuItem>

@@ -30,3 +30,7 @@ ul>li {
 .hr {
     @apply border-t border-gray-400;
 }
+
+.card {
+    @apply bg-white shadow-md rounded-lg p-4 border border-gray-400 m-2;
+}
