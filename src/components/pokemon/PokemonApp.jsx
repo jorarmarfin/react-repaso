@@ -15,6 +15,7 @@ export const PokemonApp = () => {
             <h1>PokemonApp </h1>
             <hr/>
             <p>Aquí usamos redux, y thunks para el uso de consultas asíncronas</p>
+            <p>si ingresas el nombre de un pokemon obtendras informacion del pokemon si colocas un numero aparecera nombres de los pokemones</p>
             <SearchPokemon/>
             <div>
                 {
@@ -25,6 +26,7 @@ export const PokemonApp = () => {
                             ))
                         )
                         :(
+                            pokemon.name &&
                             <div className='card'>
                                 <span className='font-bold'>{pokemon.name}</span>
                                 <div className='flex'>
